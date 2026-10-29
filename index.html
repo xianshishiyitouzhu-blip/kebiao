@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>课表</title>
+<meta name="description" content="离线可用的课表，支持表格、截图和文字导入">
+<meta name="theme-color" content="#F4F7F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1317" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="课表">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <main class="view" id="v-schedule" aria-label="课表"></main>
+  <main class="view" id="v-courses" aria-label="课程" hidden></main>
+  <main class="view" id="v-import" aria-label="导入" hidden></main>
+  <main class="view" id="v-settings" aria-label="设置" hidden></main>
+  <nav class="tabbar" role="tablist" aria-label="主菜单">
+    <button class="tab" role="tab" data-tab="schedule" aria-selected="true"><span class="ti" data-icon="tabSchedule"></span>课表</button>
+    <button class="tab" role="tab" data-tab="courses" aria-selected="false"><span class="ti" data-icon="tabCourses"></span>课程</button>
+    <button class="tab" role="tab" data-tab="import" aria-selected="false"><span class="ti" data-icon="tabImport"></span>导入</button>
+    <button class="tab" role="tab" data-tab="settings" aria-selected="false"><span class="ti" data-icon="tabSettings"></span>设置</button>
+  </nav>
+</div>
+<input type="file" id="f-table" accept=".xlsx,.xls,.csv,.tsv,.txt,.html,.htm,.numbers,.json" hidden>
+<input type="file" id="f-image" accept="image/*" hidden>
+<input type="file" id="f-backup" accept=".json,application/json" hidden>
+<script src="parser.js"></script>
+<script src="ocr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
